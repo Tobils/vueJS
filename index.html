@@ -13,7 +13,11 @@
 
 <body>
     <div id="vue-app">
-        <h1> {{ name }}</h1>
+        <h1>
+            {{ greet('night') }}
+        </h1>
+        <p> Name : {{ name }}</p>
+        <p> Job : {{ job }} </p>
     </div>
     <script src="app.js"></script>
 </body>
