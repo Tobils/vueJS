@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="vue-app">
+        <h1>{{ name }}</h1>
+        <button @click="add(1)">Add a year</button>
+        <button @click="substract(1)">Substract a year</button>
+        <button @dblclick="add(10)">Add 10 year</button>
+        <button @dblclick="substract(10)">Substract 10 year</button>
+        <br>
+        <p>My Age {{age}}</p>
+        <div id="canvas" @mousemove="updateXY">
+            {{x}},{{y}}
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

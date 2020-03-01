@@ -48,3 +48,33 @@ Belajar front end menggunakan framework vuejs
       }
     });
     ```
+
+## Day 2
+- Data Binding 
+  - data binding menggunakan syntax : `v-bind:`
+  - contoh :
+    ```html
+      <a v-bind:href="website">The Net Ninja</a>
+    ```
+  - `website` merupakan value yang sudah didefinisikan.
+    ```js
+    data: {
+        name: 'Shaun',
+        job: 'Ninja',
+        website: 'http://thenetninja.co.uk',
+        websiteTag: '<a href="http://thenetninja.co.uk">The Net Ninja Websites</a>'
+    },
+    ```
+- Data Render html
+  - syntax : `v-html:`
+  - contoh :
+    ```html
+    <p v-html="websiteTag"></p>
+    ```
+- Events
+  - kita dapat mengganti `v-on:click` menjadi `@click`
+  - fungsi yang dilewatkan menggunakan syntax : `v-on:click="add(1)"`
+    - contoh :
+      ```html
+        <button @click="add(1)">Add a year</button>
+      ```

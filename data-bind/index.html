@@ -14,10 +14,16 @@
 <body>
     <div id="vue-app">
         <h1>
-            {{ greet('night') }}
+            {{ greet('Bye') }}
         </h1>
         <p> Name : {{ name }}</p>
         <p> Job : {{ job }} </p>
+
+        <a v-bind:href="website">The Net Ninja</a>
+        <br>
+        <input type="text" v-bind:value="job">
+        <br>
+        <p v-html="websiteTag"></p>
     </div>
     <script src="app.js"></script>
 </body>
