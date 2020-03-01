@@ -12,7 +12,7 @@
 <body>
     <div id="vue-app">
         <h1>{{ name }}</h1>
-        <button @click="add(1)">Add a year</button>
+        <button @click.once="add(1)">Add a year</button>
         <button @click="substract(1)">Substract a year</button>
         <button @dblclick="add(10)">Add 10 year</button>
         <button @dblclick="substract(10)">Substract 10 year</button>
@@ -21,6 +21,7 @@
         <div id="canvas" @mousemove="updateXY">
             {{x}},{{y}}
         </div>
+        <a v-on:click.prevent="click" href="http://thenetninja.co.uk">The Net Ninja Website</a>
     </div>
 
     <script src="app.js"></script>
