@@ -119,3 +119,13 @@ Belajar front end menggunakan framework vuejs
     }
     ```
 - Dynamic CSS
+    - kita dapat membuat class css menggunakan syntax : `v-bind:class=`
+
+---
+## Day #4 Conditionals
+- `v-if=`
+    - saat value bernilai false, maka element akan menghilang
+- `v-show=`
+    - saat value dari `v-show=false`, maka akan ada `style="display none` 
+- `v-for=`
+    - example : `<li v-for="character in characters"> {{ character }}</li>`
