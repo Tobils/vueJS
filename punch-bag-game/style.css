@@ -1,0 +1,33 @@
+#title {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#bag {
+    background: red;
+    width: 200px;
+    height: 200px;
+    margin: 0px auto;
+    background-size: 80%;
+    border-radius: 100%;
+}
+
+#bag.burst {
+    background: green;
+}
+
+#bag-health {
+    width: 210px;
+    border: 2px solid black;
+    margin: 10px auto 20px auto;
+}
+
+#bag-health div {
+    height: 20px;
+    background: crimson;
+}
+
+#controls {
+    width: 120px;
+    margin: 0 auto;
+}
