@@ -3,29 +3,28 @@
     <h1>
         {{ title }}
     </h1>
-    <p>
-        {{ greeting() }}
-    </p>
+    <ninjas></ninjas>
+    
   </div>
 </template>
 
 <script>
+import Ninjas from './Ninjas.vue'
 export default {
-  data () {
-    return {
-        title: 'Mantul, vue file pertama'
+    components: {
+        'ninjas': Ninjas
+    },
+    data() {
+        return {
+            title: 'Nested component'
+        }
+    }, 
+    methods: {
+        
     }
-  }, 
-  methods: {
-    greeting: function(){
-        return 'Heyy buddy'
-    }
-  }
 }
 </script>
 
 <style>
-div {
-    margin:  0px auto;
-}
+
 </style>
