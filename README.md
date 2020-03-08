@@ -157,3 +157,60 @@ Belajar front end menggunakan framework vuejs
         // output data by the logs
         console.log(this.$refs.input.value);
         ```
+---
+## Vue CLI
+- create project : 
+```bash
+# create project
+vue init webpack-somple vuejs-playlist
+
+#To get started:
+cd vuejs-playlist
+npm install
+npm run dev
+```
+
+---
+## Nesting Components
+- example :
+    - root component
+        - header component
+            - links component
+            - login component
+        - article component
+        - footer component
+
+- secara global :
+    - main.js
+        ```js
+        // globab component
+        import Vue from 'vue'
+        import App from './App.vue'
+        import Ninjas from './Ninjas.vue'
+
+        Vue.component('ninjas', Ninjas)
+
+        new Vue({
+            el: '#app',
+            render: h => h(App)
+        })
+        ```
+- secara local :
+    - App.vue
+        ```js
+        // local component
+        import Ninjas from './Ninjas.vue'
+        export default {
+            components: {
+                'ninjas': Ninjas
+            },
+            data() {
+                return {
+                    title: 'Nested component'
+                }
+            }, 
+            methods: {
+                
+            }
+        }
+        ```
