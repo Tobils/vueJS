@@ -5,7 +5,7 @@ Belajar front end menggunakan framework vuejs
   - [Day #1 Vue intro](##\ /Day\ /#1\ /Vuejs\ /Intro)
   - [Day #2 Vue Data Binding dan Events](##\ /Day\ /#2\ /Data\ /Binding\ /dan\ /Events)
 ---
-## Day #1 Vuejs Intro
+## Vuejs Intro
 - Why Vuejs ?
   - very lean [16kb]
   - very high run-time performance
@@ -51,7 +51,7 @@ Belajar front end menggunakan framework vuejs
     });
     ```
 ---
-## Day #2 Data Binding dan Events
+## Data Binding dan Events
 - Data Binding 
   - data binding menggunakan syntax : `v-bind:`
   - contoh :
@@ -81,7 +81,7 @@ Belajar front end menggunakan framework vuejs
         <button @click="add(1)">Add a year</button>
       ```
 ---
-## Day #3 Event modifier
+## Event modifier
 - Event Modifier
   - event hanya berfungsi sekali : `v-on:click.once=`
   - event diprevent, tidak lanjut ke link yang dirujuk :  `v-on:click.prevent=`    
@@ -122,10 +122,37 @@ Belajar front end menggunakan framework vuejs
     - kita dapat membuat class css menggunakan syntax : `v-bind:class=`
 
 ---
-## Day #4 Conditionals
+## Conditionals
 - `v-if=`
     - saat value bernilai false, maka element akan menghilang
 - `v-show=`
     - saat value dari `v-show=false`, maka akan ada `style="display none` 
 - `v-for=`
     - example : `<li v-for="character in characters"> {{ character }}</li>`
+
+---
+## Component
+- `Vue.component({})`
+    - mmebuat ceomponent yang re-usable, bisa digunaakn berulang-ulang
+    - contoh declarasi component:
+        ```js
+        Vue.component('greeting', {});
+        ```
+    - memanggil component :
+        ```html
+        <greeting></greeting>
+        ```
+
+---
+## Refs
+- `this.$refs`
+    - digunakan untuk mereferensi atau mengakses data dari satu element ke element lain.
+    - contoh html:
+        ```html
+        <input type="text" ref="input" />
+        <button v-on:click="readRefs">Submit</button>
+        ```
+    - app.js :
+        ```js
+        console.log(this.$refs.input.value);
+        ```
