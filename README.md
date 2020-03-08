@@ -154,5 +154,6 @@ Belajar front end menggunakan framework vuejs
         ```
     - app.js :
         ```js
+        // output data by the logs
         console.log(this.$refs.input.value);
         ```
