@@ -2,8 +2,14 @@
 Belajar front end menggunakan framework vuejs
 
 ## Daftar isi
-  - [Day #1 Vue intro](##\ /Day\ /#1\ /Vuejs\ /Intro)
-  - [Day #2 Vue Data Binding dan Events](##\ /Day\ /#2\ /Data\ /Binding\ /dan\ /Events)
+  - [Vue Intro](##\ /Vue\ /Intro)
+  - [Data Binding dan Events](##\ /Data\ /Binding\ /dan\ /Events)
+  - [Event modifier](##\ /Event\ /modifier)
+  - [Conditionals](##\ /Conditionals)
+  - [Component](##\ /Component)
+  - [Refs](##\ /Refs)
+  - [Vue CLI](##\ /Vue\ /CLI)
+  - [Nesting Components](##\ /Nesting\ /Components)
 ---
 ## Vuejs Intro
 - Why Vuejs ?
@@ -183,7 +189,7 @@ npm run dev
 - secara global :
     - main.js
         ```js
-        // globab component
+        // global component
         import Vue from 'vue'
         import App from './App.vue'
         import Ninjas from './Ninjas.vue'
@@ -214,3 +220,24 @@ npm run dev
             }
         }
         ```
+
+---
+## Component CSS [SCOPED]
+- agar sepcific component, gunakan `scoped`
+    ```html
+    <style scoped>
+    h1{
+        color: blueviolet;
+    }
+    </style>
+    ```
+
+---
+## Nesting Component
+- Root component
+    - Header Component
+        - Title
+    - Footer Component
+        - Copyright notice
+    - Ninja Component
+        - list of ninja

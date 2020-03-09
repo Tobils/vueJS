@@ -1,22 +1,26 @@
 <template>
-  <div>
-    <h1>
-        {{ title }}
-    </h1>
-    <ninjas></ninjas>
-    
-  </div>
+<div>
+    <app-header></app-header>
+    <app-ninjas></app-ninjas>
+    <app-footer></app-footer>
+</div>
+
 </template>
 
 <script>
-import Ninjas from './Ninjas.vue'
+import Header from './components/Header.vue'
+import Ninjas from './components/Ninjas.vue'
+import Footer from './components/Footer.vue'
+
 export default {
     components: {
-        'ninjas': Ninjas
+        'app-header': Header,
+        'app-footer': Footer,
+        'app-ninjas': Ninjas
     },
     data() {
         return {
-            title: 'Nested component'
+           
         }
     }, 
     methods: {
@@ -25,6 +29,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+h1 {
+    color: aqua;
+}
 </style>
