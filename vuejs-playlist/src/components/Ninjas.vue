@@ -15,17 +15,15 @@
 
 <script>
 export default {
+    props:{
+        ninjas: {
+            type: Array,
+            required: true
+        }
+    },
     data() {
         return {
-            ninjas: [
-                {name:'Ryu', speciality: 'Vue Component', show:false},
-                {name:'Crystal', speciality: 'HTML Component', show:false},
-                {name:'Hitoshi', speciality: 'Event Component', show:false},
-                {name:'Tango', speciality: 'Click Component', show:false},
-                {name:'Kami', speciality: 'Webpack', show:false},
-                {name:'Yoshi', speciality: 'Data Digin', show:false},
-
-            ]
+           
         }
     }, 
     methods: {

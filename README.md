@@ -176,16 +176,27 @@ npm install
 npm run dev
 ```
 
----
-## Nesting Components
-- example :
-    - root component
-        - header component
-            - links component
-            - login component
-        - article component
-        - footer component
 
+---
+## Component CSS [SCOPED]
+- agar sepcific component, gunakan `scoped`
+    ```html
+    <style scoped>
+    h1{
+        color: blueviolet;
+    }
+    </style>
+    ```
+
+---
+## Nesting Component
+- Root component
+    - Header Component
+        - Title
+    - Footer Component
+        - Copyright notice
+    - Ninja Component
+        - list of ninja
 - secara global :
     - main.js
         ```js
@@ -220,24 +231,9 @@ npm run dev
             }
         }
         ```
-
 ---
-## Component CSS [SCOPED]
-- agar sepcific component, gunakan `scoped`
-    ```html
-    <style scoped>
-    h1{
-        color: blueviolet;
-    }
-    </style>
-    ```
-
----
-## Nesting Component
-- Root component
-    - Header Component
-        - Title
-    - Footer Component
-        - Copyright notice
-    - Ninja Component
-        - list of ninja
+## Props
+- transfer data dari root component ke child component
+- melewatkan data dari App.vue ke Ninja.vue
+    - penerima Ninjas.vue : `props:['ninjas']`
+    - pengirim App.vue : ``
