@@ -1,10 +1,9 @@
 <template>
-<div>
-    <app-header></app-header>
-    <app-ninjas v-bind:ninjas="ninjas"></app-ninjas>
-    <app-footer></app-footer>
-</div>
-
+    <div>
+        <app-header v-bind:title="title"></app-header>
+        <app-ninjas v-bind:ninjas="ninjas"></app-ninjas>
+        <app-footer v-bind:title="title"></app-footer>
+    </div>
 </template>
 
 <script>
@@ -27,7 +26,8 @@ export default {
                 {name:'Tango', speciality: 'Click Component', show:false},
                 {name:'Kami', speciality: 'Webpack', show:false},
                 {name:'Yoshi', speciality: 'Data Digin', show:false},
-            ]
+            ],
+            title: "Vuejs Nested"
         }
     }, 
     methods: {
