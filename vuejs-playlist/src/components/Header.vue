@@ -20,7 +20,8 @@ export default {
     }, 
     methods: {
         changeTitle: function() {
-            this.title = " Ganti gaaan !"
+            // this.title = " Ganti gaaan !"
+            this.$emit('changeTitle','Ganti Judul from child')
         }
     }
 }
