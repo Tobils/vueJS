@@ -236,4 +236,91 @@ npm run dev
 - transfer data dari root component ke child component
 - melewatkan data dari App.vue ke Ninja.vue
     - penerima Ninjas.vue : `props:['ninjas']`
-    - pengirim App.vue : ``
+    - pengirim App.vue : `data(){return ninjas}`
+
+---
+## Event Child to parents
+- child  `Header.vue` : `<h1 v-on:click="changeTitle"> {{ title }} </h1>` : `changeTitle: function() {this.$emit('changeTitle','Ganti Judul from child')}`
+    ```js
+    <template>
+        <header>
+            <h1 v-on:click="changeTitle"> {{ title }} </h1>
+        </header>
+    </template>
+
+    <script>
+    export default {
+        props: {
+            title: {
+                type: String
+            }
+        },
+        data() {
+            return {
+                title: 'Vue Ninjas' 
+            }
+        }, 
+        methods: {
+            changeTitle: function() {
+                // this.title = " Ganti gaaan !"
+                this.$emit('changeTitle','Ganti Judul from child')
+            }
+        }
+    }
+    </script>
+
+    <style scoped>
+    header {
+        background: lightgreen;
+        padding: 10px;
+    }
+
+    h1 {
+        color: #222;
+        text-align: center;
+    }
+    </style>
+    ```
+- parents `App.vue` : 
+    - template : `<app-header v-bind:title="title" v-on:changeTitle="updateTitle($event)"></app-header>`
+    - methods  : `updateTitle: function(updateTitle) { this.title = updateTitle; }`
+
+---
+## Event Bus
+- komunikasi data antar child, tidak melalui parent
+    - modify `Main.js`
+        ```js
+        // ...
+        export const bus = new Vue();
+        // ...
+        ```
+    - data dikirim dari `Header` ke `Footer`
+    - modifikasi di `Header.vue` sebagai sender
+        ```js
+        // ...
+        import {bus} from '../Main';
+        // ...
+        methods: {
+            changeTitle: function(){
+                this.$emit('titleChanged','value);
+            }
+        }
+        // ...
+        ```
+    - modifikasi di `Footer.vue` sebagai receiver
+        ```js
+        // ...
+        import {bus} from '../Main/'
+        // ...
+        export deafult(){
+            props:{},
+            // ...
+            methods:{},
+            // ...
+            created: {
+                bus.$on('titleChanged', (data) => {
+                    this.title = data;
+                })
+            }
+        }
+        ````

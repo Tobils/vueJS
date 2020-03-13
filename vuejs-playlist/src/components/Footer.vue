@@ -1,12 +1,13 @@
 <template>
 <footer>
-    <p>
+    <p v-on:click="ubahJudul">
         {{ copyright }} - {{ title }}
     </p>
 </footer>
 </template>
 
 <script>
+import {bus} from '../main'
 export default {
     props: {
         title: {
@@ -19,7 +20,14 @@ export default {
         }
     }, 
     methods: {
-        
+        ubahJudul: function(){
+            bus.$emit('ubahJudul','Ubah dari Footer');
+        }
+    },
+    created(){
+        bus.$on('titleChanged', (data) => {
+            this.title = data;
+        })
     }
 }
 </script>
