@@ -326,7 +326,7 @@ npm run dev
         ````
 ---
 ## Life-Cycle Hooks
-<p align="center>
+<p align="center">
     <a href="https://vuejs.org/v2/guide/instance.html"><img src="./images/lifecycle.png" width="50%"></a>
 </p>
 
@@ -354,7 +354,7 @@ npm run dev
         alert('updated');
     }
     ```
-- insight :
+- Insight :
     ```
     Implementasi pada Ninjas.vue menunjukan life cycle Vue yang kita buat. setiap stage seperti beforeCreated() dan seterusnya akan diekseskusi oleh Vue.
     sebagai contoh, dapat digunakan alert untuk menunjukan bahwa lifecycle pada vue.js berjalan di setiap stage nya.
