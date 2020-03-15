@@ -32,25 +32,25 @@ export default {
             this.ninjas.pop();
         }
     },
-    // lifecycle hooks
-    beforeCreated(){
-        alert('beforeCreated');
-    },
-    cretaed(){
-        alert('created');
-    },
-    beforeMount(){
-        alert('beforeMount');
-    },
-    mounted(){
-        alert('mounted');
-    },
-    beforeUpdate(){
-        alert('beforeUpdate');
-    },
-    upadeted(){
-        alert('updated');
-    }
+    // // lifecycle hooks
+    // beforeCreated(){
+    //     alert('beforeCreated');
+    // },
+    // cretaed(){
+    //     alert('created');
+    // },
+    // beforeMount(){
+    //     alert('beforeMount');
+    // },
+    // mounted(){
+    //     alert('mounted');
+    // },
+    // beforeUpdate(){
+    //     alert('beforeUpdate');
+    // },
+    // upadeted(){
+    //     alert('updated');
+    // }
 }
 </script>
 

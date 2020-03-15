@@ -1,5 +1,5 @@
 # vueJS
-Belajar front end menggunakan framework vuejs
+Belajar vue js
 
 ## Daftar isi
   - [Vue Intro](##\ /Vue\ /Intro)
@@ -359,6 +359,129 @@ npm run dev
     Implementasi pada Ninjas.vue menunjukan life cycle Vue yang kita buat. setiap stage seperti beforeCreated() dan seterusnya akan diekseskusi oleh Vue.
     sebagai contoh, dapat digunakan alert untuk menunjukan bahwa lifecycle pada vue.js berjalan di setiap stage nya.
     ```
+
 ---
+## SLOT
+- digunakan untuk melewatkan data pada template
+- `App.vue`
+    ```js
+    // ... template
+     <template>
+        <form-helper>
+                <div slot="form-header">
+                    <h2 slot="title">{{ slotTitle }}</h2>
+                    <p> information about the form</p>
+                </div>
+
+                <div slot="form-fields">
+                    <input type="text" placeholder="name" required>
+                    <input type="password" placeholder="password" required>
+                </div>
+                
+                <div slot="form-controls">
+                    <button v-on:click="handleSubmit">Submit</button>
+                </div>
+
+            </form-helper>
+     </template>
+
+     // ... script
+     import formHelper from './components/formHelper'
+     export dafault: {
+        // ...
+        'form-helper': formHelper
+     },
+     // ...
+    ```
+- `formHelper.vue`
+    ```js
+    // ... template
+    <form>
+            <div id="form-header">
+                <slot name="form-header"></slot>
+            </div>
+            <div id="form-fields">
+                <slot name="form-fields"></slot>
+            </div>
+            <div id="form-controls">
+                <slot name="form-controls"></slot>
+            </div>
+    </form>
+    ```
 
 
+---
+## Dynamic Component
+- membuat component menjadi dynamic, dengan mendefinisikan component mana yang akan digunakan secara otomatis
+- `App.vue`
+    ```js
+    <template>
+        <div>
+            <!-- keep-alive membuat component dynamic kita berada pada konidis terakhirnya -->
+            <keep-alive>    
+                <component v-bind:is="component"></component>
+            </keep-alive>
+            <!-- component berubah sesuai dengan button yang di tekan -->
+            <button v-on:click="component = 'form-one'">Show form One</button>
+            <button v-on:click="component = 'form-two'">Show form Two</button>
+
+        </div>
+    </template>
+
+    <script>
+    // slot 
+    import formHelper from './components/formHelper'
+    import formOne from './components/formOne'
+    import formTwo from './components/formTwo'
+
+    export default {
+        components: {
+            'form-helper': formHelper,
+            'form-one': formOne,
+            'form-two': formTwo
+        },
+        data() {
+            // component data 
+            return {
+                component : 'form-one'
+            }
+        }
+    }
+    </script>
+
+    <style scoped>
+    </style>
+    ```
+- `form One.vue`
+    ```js
+    <template>
+        <!-- data dari form One dikirim ke form helper menggunakan slot  -->
+        <form-helper>
+            <div slot="form-header">
+                <h3>Form One - Contact Us</h3>
+                <p>Fill in this form to contact us</p>
+            </div>
+            <div slot="form-fields">
+                <input type="text" placeholder="name" required />
+                <label>Your Message:</label>
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+            </div>
+            <div slot="form-controls">
+                <button v-on:click="handleSubmit">Send</button>
+            </div>
+        </form-helper>
+    </template>
+
+    <script>
+    // gunakan component form helper
+    import formHelper from './formHelper'
+    export default {
+        components: {
+            'form-helper': formHelper
+        }
+    }
+    </script>
+
+    <style scoped>
+    </style>
+    ```
