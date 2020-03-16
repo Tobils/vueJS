@@ -16,8 +16,8 @@ Belajar vue js
   - very lean [16kb]
   - very high run-time performance
 - dokumentasi resmi vuejs
-  - [1](https://scrimba.com/p/pXKqta/)
-  - [2](https://www.vuemastery.com/courses/)
+  - [scrimba](https://scrimba.com/p/pXKqta/)
+  - [vuemastery](https://www.vuemastery.com/courses/)
 
 - install `live-server` vs code agar bisa mengonline kan file web yang dibuat.
 - membuat 2 file
@@ -485,3 +485,76 @@ npm run dev
     <style scoped>
     </style>
     ```
+
+----
+## Input Binding
+- component baru dengan nama file `addBlog.vue`
+    ```js
+    <template>
+        <div id="add-blog">
+            <form action="">
+                <label>Blog Title</label>
+                <input type="text" v-model.lazy="blog.title" required>
+                <label>Blog Content</label>
+                <textarea v-model.lazy="blog.content"> </textarea>
+            </form>
+
+            <div id="preview">
+                <h3>{{ blog.title }}</h3>
+                <p>{{ blog.content }}</p>
+            </div>
+
+        </div>    
+    </template>
+
+    <script>
+    export default {
+        data(){
+            return {
+                blog: {
+                    title:"", 
+                    content:""
+                }
+            }
+        }
+    }
+    </script>
+
+    <style scoped>
+    #add-blog *{
+        box-sizing: border-box;
+    }
+
+    #add-blog {
+        margin: 20px auto;
+        max-width: 500px;
+    }
+
+    label {
+        display: block;
+        margin: 20px 0 10px;
+    }
+
+    input[type="text"],textarea{
+        display: block;
+        width: 100%;
+        padding: 8px;
+    }
+
+    #preview{
+        text-align: center;
+        padding: 10px 20px;
+        border: 1px dotted #ccc;
+        margin: 30px 0;
+    }
+
+    h3 {
+        margin-top: 10px;
+    }
+    </style>
+    ```
+- sedikit penjelasan :
+    v.model digunakan agar object terikat dengan data, sehingga bisa digunakan sebagai preview. sedangkan syntax lazy digunakan ketika preview di hold dan akan mnuncul setelah input di enter atau masuk ke input lain.
+
+---
+## Checkbox Binding

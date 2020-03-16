@@ -24,13 +24,19 @@
         <form-two></form-two> -->
 
         <!-- select directly from component for dynamic -->
-        <keep-alive>    
+        <!-- <keep-alive>    
             <component v-bind:is="component"></component>
         </keep-alive>
         <button v-on:click="component = 'form-one'">Show form One</button>
-        <button v-on:click="component = 'form-two'">Show form Two</button>
+        <button v-on:click="component = 'form-two'">Show form Two</button> -->
 
+        <!-- add blog input binding  -->
+        <add-blog>
+
+        </add-blog>
+        
     </div>
+    
 </template>
 
 <script>
@@ -43,6 +49,10 @@ import formHelper from './components/formHelper'
 import formOne from './components/formOne'
 import formTwo from './components/formTwo'
 
+
+// add blog input binding 
+import addBlog from './components/addBlog'
+
 export default {
     components: {
         'app-header': Header,
@@ -50,7 +60,8 @@ export default {
         'app-ninjas': Ninjas,
         'form-helper': formHelper,
         'form-one': formOne,
-        'form-two': formTwo
+        'form-two': formTwo,
+        'add-blog':addBlog
     },
     data() {
         return {
@@ -78,6 +89,11 @@ export default {
 </script>
 
 <style scoped>
+/* for blog input binding */
+body {
+    margin: 0;
+    font-family: 'Nunito SemiBold';
+}
 h1 {
     color: aqua;
 }
