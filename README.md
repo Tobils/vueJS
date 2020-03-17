@@ -558,3 +558,61 @@ npm run dev
 
 ---
 ## Checkbox Binding
+- menyimpan data check box ke dalam array.
+- example
+    ```js
+    // checkbox
+    <div id="checkboxes">
+        <label> Ninjas </label>
+        <input type="checkbox" value="ninjas" v-model="blog.categories"/>
+        <label> Cheese </label>
+        <input type="checkbox" value="cheese" v-model="blog.categories"/>
+        <label> Mario </label>
+        <input type="checkbox" value="mario" v-model="blog.categories"/>
+        <label> Wizard </label>
+        <input type="checkbox" value="wizard" v-model="blog.categories"/>
+    </div>
+    // output
+    <ul>
+        <li v-for="category in blog.categories"> {{ category }}</li>
+    </ul>
+
+    // export default
+    data(){
+        return {
+            blog: {
+                categories: []
+            }
+        }
+    }
+    ```
+
+---
+## Select Box Binding
+- menyimpan data yang dipilih ke dalam model
+- example
+    ```js
+    // select is binding to model author
+     <select v-model="blog.author">
+        <option v-for="author in authors"> {{ author }} </option>
+    </select>
+
+    // preview
+    <p>{{ blog.author }}</p>
+
+    // data 
+    data(){
+        return {
+            blog: {
+                title:"", 
+                content:"",
+                categories: [],
+                author: ""
+            },
+            authors:["ade suhada","frika atrika","arif munarto"]
+        }
+    }
+    ```
+
+---
+## HTTP Request
