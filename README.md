@@ -616,3 +616,22 @@ npm run dev
 
 ---
 ## HTTP Request
+- `npm install vue-resource`
+- pada main.js tambahkan vue resource
+    ```js
+    import VueResource from 'vue-resource'
+    Vue.use(VueResource)
+    ```
+- tambahkan method post pada `addBlog.vue`
+    ```js
+    post: function(){
+        this.$http.post('endpoint', {
+            title: this.blog.title,
+            body: this.blog.content,
+            id: 1
+        }).then(function(data){
+            console.log(data)
+            this.submitted = true;
+        })
+    }
+    ```

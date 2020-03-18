@@ -1,10 +1,10 @@
 <template>
     <div id="add-blog">
-        <form action="">
+        <form v-if="!submitted">
             <label>Blog Title</label>
             <input type="text" v-model.lazy="blog.title" required>
             <label>Blog Content</label>
-            <textarea v-model.lazy="blog.content"> </textarea>
+            <textarea v-model="blog.content"> </textarea>
             <div id="checkboxes">
                 <label> Ninjas </label>
                 <input type="checkbox" value="ninjas" v-model="blog.categories"/>
@@ -20,8 +20,12 @@
             <select v-model="blog.author">
                 <option v-for="author in authors"> {{ author }} </option>
             </select>
-
+            <button v-on:click.prevent="post"> Add Blog </button>
         </form>
+
+        <div v-if="submitted">
+            <h3> Thanks for submit new blog </h3>
+        </div>
 
         <div id="preview">
             <h3>{{ blog.title }}</h3>
@@ -31,9 +35,6 @@
             </ul>
             <p>{{ blog.author }}</p>
         </div>
-
-
-
     </div>    
 </template>
 
@@ -45,9 +46,17 @@ export default {
                 title:"", 
                 content:"",
                 categories: [],
-                author: ""
+                author: "",
+                
             },
-            authors:["ade suhada","frika atrika","arif munarto"]
+            authors:["ade suhada","frika atrika","arif munarto"],
+            submitted: false
+        }
+    },
+    methods: {
+        post: function() {
+            console.log(this.blog.title, this.blog.content);
+            this.submitted = true;
         }
     }
 }
